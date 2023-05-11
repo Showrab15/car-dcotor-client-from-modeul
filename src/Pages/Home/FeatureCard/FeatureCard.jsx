@@ -8,7 +8,7 @@ import feature6 from '../../../assets/icons/group.svg'
 
 const FeatureCard = () => {
     return (
-        <div className="grid grid-cols-6 gap-6 mt-8">
+        <div className="grid md:grid-cols-6 gap-6 mt-8">
             <div className="stack">
                 <div className="text-center hover:bg-orange-500 border border-base-content card w-full bg-base-100">
                     <img src={feature1} alt="" className="w-[67px]
