@@ -31,7 +31,7 @@ const BookServices = () => {
         }
         // console.log(booking);
 
-        fetch('http://localhost:5000/bookings',
+        fetch('https://car-dcotor-server-side-from-modeul-showrab15.vercel.app/bookings',
      {
       method : 'POST',
       headers: {
