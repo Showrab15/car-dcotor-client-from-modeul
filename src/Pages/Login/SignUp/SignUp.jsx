@@ -4,6 +4,7 @@ import { FaFacebook,FaLinkedin, FaGoogle } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
+import SocialLogin from '../../Shared/SocialLogin/SocialLogin';
 const SignUp = () => {
 
     const {createUser, logOut} = useContext(AuthContext);
@@ -39,13 +40,8 @@ const SignUp = () => {
 
         })
         .catch(error =>{
-            console.log(error.message);
-          setError(Swal.fire({
-            title: 'Error!',
-            text: 'Error want to continue',
-            icon: 'error',
-            confirmButtonText: 'Not Cool'
-          }));
+            setError(error.message);
+       
           setSuccess('');
         })
 
@@ -57,8 +53,8 @@ const SignUp = () => {
       .then(()=>{})
       .catch(error=> console.log(error.message))
     }
-    console.log(error)
-    console.log(success)
+    // console.log(error)
+    // console.log(success)
     return (
        <div className="hero min-h-screen bg-red-200">
   <div className="hero-content flex-col lg:flex-row items-center">
@@ -87,25 +83,19 @@ const SignUp = () => {
           </label>
           <input type="password" required name="password" placeholder="password" className="input input-bordered" />
         </div>
+        <p>{error}</p>
            <label className="label">
             <p href="#" className="label-text-alt ">Already Have An Account ? <Link className=" font-bold text-orange-600 link link-hover" to="/login">Login</Link></p>
           
           </label>
-            {/* <p className="text-2xl text-orange-600 font-bold">{error}</p>
-            <p className="text-2xl text-orange-600 font-bold">{success}</p> */}
+          
 
         <div className="form-control mt-6">
           <button className="btn bg-[#FF3811]">Sign Up</button>
         </div>
       </form>
-      <div>
-        <p className="text-center font-semibold">Or Sign Up with</p>
-        <div className="flex mt-6 justify-center gap-4">
-           <FaFacebook className="text-[#3B5998] w-[30px] h-[30px]"></FaFacebook>
-           <FaLinkedin className="text-[#0A66C2]  w-[30px] h-[30px]"></FaLinkedin>
-           <FaGoogle className="text-sky-600  w-[30px] h-[30px]"></FaGoogle>
-        </div>
-      </div>
+     
+     <SocialLogin></SocialLogin>
       </div>
     </div>
   </div>
